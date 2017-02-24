@@ -42,5 +42,17 @@ namespace WebApplication1.Controllers
             }
             return students;
         }
+
+        public string AddStudents(tbl_Student student)
+        {
+            
+            _ctx.tbl_Student.Add(student);
+            var saved = _ctx.SaveChanges();
+            if (saved==1)
+            {
+                return "OK!";
+            }
+            return "Failed";
+        }
     }
 }
